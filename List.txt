@@ -1,0 +1,13 @@
+loanid		"loanid":(?P<loanid>\d+)
+amount		"amount":(?P<amount>[^,]+)
+intrest		"interest":(?P<interest>[0-9.]+)
+month		"months":(?P<months>\d+)
+risk_rank	"borrowerLevel":"(?P<risk_level>[^"]+)"
+age		年龄</span><em>(?P<age>\d+)
+marriage	婚姻</span><em>  (?P<marriage>..)
+graduation	学历</span><em>(?P<graduation>..)
+success		成功借款</span><em>(?P<success>\d+)
+halt		逾期次数</span><em>(?P<halt>\d+)
+income		收入</span><em>(?P<income>.*)</em>
+address		"address":"(?P<address>[^"]*)"
+
