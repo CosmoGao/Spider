@@ -14,7 +14,7 @@ cursor = WE_db.cursor()
 # 建表
  
 cursor.execute('DROP TABLE IF EXISTS loanlog')
-cursor.execute('CREATE TABLE loanlog (loanid,user_name varchar(50), address varchar(50), job_type varchar(100), amount varchar(10), interest varchar(6), months varchar(3), risk_level varchar(3), finish_ratio varchar(6))')
+cursor.execute('CREATE TABLE loanlog (loanid int primary key,user_name varchar(50), address varchar(50), job_type varchar(100), amount varchar(10), interest varchar(6), months varchar(3), risk_level varchar(3), finish_ratio varchar(6))')
  
 #正则匹配
 
