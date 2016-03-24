@@ -1,3 +1,6 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import urllib2
 
 page_index = input(r'Pls input the page_index you want to try:')
