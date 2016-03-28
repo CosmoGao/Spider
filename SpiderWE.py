@@ -9,21 +9,17 @@ import os
 import sqlite3
  
 # 打开数据库文件
- 
 WE_db = sqlite3.connect(r'.\WE.db')
 cursor = WE_db.cursor()
  
 # 建表
- 
 cursor.execute('DROP TABLE IF EXISTS loanlog')
 cursor.execute('CREATE TABLE loanlog (loanid int primary key,user_name varchar(50), address varchar(50), job_type varchar(100), amount varchar(10), interest varchar(6), months varchar(3), risk_level varchar(3), finish_ratio varchar(6))')
  
 #正则匹配
-
 pattern = re.compile(r'"loanId":(?P<loanid>\d+).+"amount":(?P<amount>[^,]+),"interest":(?P<interest>[0-9.]+),"months":(?P<months>\d+).*"finishedRatio":(?P<finish_ratio>[^,]+).*"nickName":"(?P<user_name>[^"]+).+"borrowerLevel":"(?P<risk_level>[^"]+)","address":"(?P<address>[^"]*)","jobType":"(?P<job_type>[^"]*)"',re.S|re.M) 
 
-#定义爬虫函数
-     
+#定义爬虫函数  
 def parse(url):
     req = urllib2.Request(url, None, {'User-Agent': 'Mozilla/5.0'})  #pretend to be a browser
     try:
@@ -33,12 +29,10 @@ def parse(url):
         return None    
          
 #自定义爬虫起始点
-
 page_start = input('Please input the number you want to start:')
 page_end = input('Then input the number you want to stop:')+1
 
 #导入数据库
-
 index = 0
 try:
     for page_index in range (page_start,page_end):
@@ -58,6 +52,5 @@ try:
     
 except:
     print 'there is an error at'+sName
-
 
 os.system("pause")
