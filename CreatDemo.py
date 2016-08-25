@@ -1,17 +1,40 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
+# ! /usr/bin/env python
+# -*- coding:utf-8 -*-
 
-'创建示例页面'
+'Python module'
 
 __author__ = 'Gao Yuhao'
 
-import urllib2
+try:
+    input = raw_input
+except:
+    pass
 
-page_index = input(r'Pls input the page_index you want to try:')
-sName = '%d' % page_index
-surl = r'http://www.we.com/lend/detailPage.action?loanId=' + sName
-req = urllib2.Request(surl, None, {'User-Agent': 'Mozilla/5.0'})
-html = urllib2.urlopen(req).read()
-out = open('DEMO' + sName + '.html', 'w+')
-out.write(html)
+import requests
+from bs4 import BeautifulSoup
+import json
+
+page_index = input('Pls input the page_index you want to try:')
+surl = 'http://www.we.com/lend/detailPage.action?loanId=' + page_index
+req = requests.get(url=surl)
+html = req.text.encode('utf-8')
+
+out = open('DEMO' + page_index + '.html', 'w+')
+out.write(str(html))
 out.close()
+
+def res(string):
+    try:
+        soup = BeautifulSoup(string, 'html.parser')
+        res = soup('script', id='credit-info-data')[0].text
+        return json.loads(res)
+    except:
+        return None
+
+x = res(html)
+if x != None and len(x) != 0:
+    out = open('DEMO' + page_index + '.txt', 'w+')
+    out.write(json.dumps(x, indent=4))
+    out.close
+else:
+    pass
