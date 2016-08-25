@@ -31,11 +31,36 @@
           <h1>
 <a id="spider" class="anchor" href="#spider" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spider</h1>
 
-<p>基于<strong>Python 2.7+</strong> 编写的人人贷(WE)交易数据爬虫，默认爬取<em>交易序号(loanid)、用户名(user_name)、地址(address)、职业(job_type)、交易金额(amount)、利率(interest)、周期(months)、信用等级(risk_level)</em>和<em>完成度(finish_ratio)</em>，可以通过修改正则表达式匹配部分修改爬取内容。</p>
+<p>基于<strong>Python</strong> 编写的人人贷(WE)交易数据爬虫，默认爬取<em>交易序号(loanid)、用户名(user_name)、地址(address)、职业(job_type)、交易金额(amount)、利率(interest)、周期(months)、信用等级(risk_level)</em>和<em>完成度(finish_ratio)</em>，可以通过修改正则表达式匹配部分修改爬取内容。</p>
 
 <p>爬取数据使用 SpiderWE.py 文件，修改爬取规则可以先用 CreateDemo.py 查看原网页代码。</p>
 
-<p>请<strong>不要</strong>同时开多个线程爬取，以免对网站造成影响或IP被屏蔽。</p>
+<p>请<strong>不要</strong>同时开多个线程爬取，以免对网站造成影响或 IP 被屏蔽。</p>
+
+<p>Requirements (V2.0):</p>
+
+<ul>
+<li>BeautifulSoup 4</li>
+</ul>
+
+<div class="highlight highlight-source-shell"><pre>pip install beautifulsoup4</pre></div>
+
+<ul>
+<li>requests</li>
+</ul>
+
+<div class="highlight highlight-source-shell"><pre>pip install requests</pre></div>
+
+<p>Updates (V2.0):</p>
+
+<ul>
+<li>[x] 采用 bs4 代替原有的 re 正则表达式，提高效率</li>
+<li>[x] 采用 requests 代替 urllib2，提高稳定性</li>
+<li>[x] 使用 json 对提取结果进行格式化，便于调用</li>
+<li>[x] 兼容 Python 2 和 Python 3</li>
+</ul>
+
+<hr>
 
 <h2>
 <a id="spider-1" class="anchor" href="#spider-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spider+</h2>
